@@ -75,6 +75,12 @@ class LaunchArguments(LaunchArgumentsBase):
     rviz: DeclareLaunchArgument = CommonArgs.rviz
     gzclient: DeclareLaunchArgument = CommonArgs.gzclient
     gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
+    play_motion2: DeclareLaunchArgument = DeclareLaunchArgument(
+        "play_motion2",
+        default_value="True",
+        description="Launch play_motion2",
+        choices=["True", "False"],
+    )
 
 
 def generate_launch_description():
@@ -239,7 +245,8 @@ def declare_actions(
             'is_public_sim': launch_args.is_public_sim,
             'gazebo_version': launch_args.gazebo_version,
             'has_teleop_arms': launch_args.has_teleop_arms,
-            'has_wrist_camera': launch_args.has_wrist_camera}
+            'has_wrist_camera': launch_args.has_wrist_camera,
+            'play_motion2': LaunchConfiguration('play_motion2')}
     )
 
     launch_description.add_action(tiago_bringup)
