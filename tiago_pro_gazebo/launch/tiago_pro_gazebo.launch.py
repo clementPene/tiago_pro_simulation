@@ -104,7 +104,8 @@ def start_gazebo(context, *args, **kwargs):
 
     packages = ['tiago_pro_description', 'pal_sea_arm_description',
                 'omni_base_description', 'pal_pro_gripper_description',
-                'tiago_pro_head_description', 'pal_urdf_utils']
+                'tiago_pro_head_description', 'pal_urdf_utils',
+                'pal_atc_description']
 
     if not is_public_sim == 'True':
         packages.append('allegro_hand_description')
